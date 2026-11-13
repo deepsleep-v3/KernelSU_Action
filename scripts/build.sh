@@ -2,6 +2,11 @@
 # Prepare the defconfig and compile the kernel.
 
 set -euo pipefail
+# ================= 强行安装缺失的 GNU 交叉编译工具链 =================
+sudo apt-get update -qq
+sudo apt-get install -y gcc-aarch64-linux-gnu binutils-aarch64-linux-gnu
+# ======================================================================
+
 # shellcheck source=scripts/lib.sh
 . "$(dirname "${BASH_SOURCE[0]}")/lib.sh"
 # shellcheck source=scripts/kernelsu.sh
